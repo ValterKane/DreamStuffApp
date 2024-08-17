@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DreamStuffApp.View.AutorizationPage"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             Title="AutorizationPage" Background="#E26CFF">
+
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="ButtonStyle">
+            <Setter Property="FontFamily" Value="Black"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="0,20,0,0"/>
+            <Setter Property="CornerRadius" Value="20"/>
+            <Setter Property="BackgroundColor" Value="White"/>
+            <Setter Property="TextColor" Value="#E26CFF"/>
+            
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#E26CFF"/>
+    </ContentPage.Behaviors>
+
+    <VerticalStackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+        <Image Source="logo.png" WidthRequest="200" HeightRequest="200"/>
+        <Image Source="name.png" WidthRequest="200" HeightRequest="200"/>
+        <Label Text="Авторизация" VerticalOptions="Center" HorizontalOptions="Center" FontSize="20" FontFamily="Black" TextColor="White"/>
+        <Frame CornerRadius="30" Background="White" HasShadow="True" Margin="0,20,0,0">
+            <VerticalStackLayout>
+                <Entry WidthRequest="200" HeightRequest="50" Background="White" Placeholder="Номер телефона" TextColor="#E26CFF" FontFamily="Medium" x:Name="LoginTB" Text="89349098777"/>
+                <Entry WidthRequest="200" HeightRequest="50" Background="White" Placeholder="Пароль" TextColor="#E26CFF" FontFamily="Medium" IsPassword="True" x:Name="PassTB" Text="1234"/>
+            </VerticalStackLayout>
+        </Frame>
+        <Button Text="Войти" Style="{DynamicResource ButtonStyle}" Clicked="Button_Clicked" x:Uid="123"/>
+    </VerticalStackLayout>
+</ContentPage>

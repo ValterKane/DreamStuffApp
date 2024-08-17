@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DreamStuffApp.View.StashForm"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             Title="StashForm" Background="#E26CFF">
+
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#E26CFF"/>
+    </ContentPage.Behaviors>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="logo.png" HeightRequest="100"/>
+                    <Image Source="name.png" HeightRequest="100" WidthRequest="200"/>
+                </StackLayout>
+
+                <Border BackgroundColor="White" Stroke="White" StrokeThickness="0" StrokeShape="RoundRectangle 30,30,0,0" Margin="0,10,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="150"/>
+                        </Grid.RowDefinitions>
+
+                        <Label Grid.Row="0" Text="Ваши покупки" FontFamily="Black" FontSize="16" TextColor="#E26CFF" Margin="15,15,0,0"/>
+
+                        <FlexLayout Grid.Row="1" x:Name="StashFlexGrid"  Direction="Column" JustifyContent="Center" Wrap="NoWrap" AlignItems="Start" Margin="10,10,0,0" >
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <HorizontalStackLayout>
+                                        <Border HeightRequest="100" WidthRequest="100" Stroke="#E26CFF" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10">
+                                            <Image Source="{Binding ImageURL}" />
+                                        </Border>
+                                        <VerticalStackLayout Margin="10,0,0,0" Padding="5">
+                                            <Label Text="{Binding Good_Name}" FontSize="14" TextColor="#E26CFF" Padding="5" />
+                                            <Label Text="{Binding Price, StringFormat='{0} Р.'}" FontSize="14" TextColor="#E26CFF" FontFamily="Black" Padding="5"/>
+                                            <HorizontalStackLayout Padding="5">
+                                                <Border BackgroundColor="Transparent" WidthRequest="30" HeightRequest="30" Stroke="#E26CFF" StrokeThickness="1" StrokeShape="RoundRectangle 50,0,50,0">
+                                                    <Border.GestureRecognizers>
+                                                        <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped_1"/>
+                                                    </Border.GestureRecognizers>
+                                                    <Label Text="-" TextColor="#E26CFF" FontFamily="Black" FontSize="12" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                                </Border>
+                                                <Border BackgroundColor="Transparent" WidthRequest="80" Stroke="#E26CFF" StrokeThickness="1">
+                                                    <Label Text="{Binding Count}"  FontFamily="Black" TextColor="#E26CFF" FontSize="12" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                                </Border>
+                                                <Border BackgroundColor="Transparent" WidthRequest="30" HeightRequest="30" Stroke="#E26CFF" StrokeThickness="1" StrokeShape="RoundRectangle 0,50,0,50">
+                                                    <Border.GestureRecognizers>
+                                                        <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped"/>
+                                                    </Border.GestureRecognizers>
+                                                    <Label Text="+" FontFamily="Black" TextColor="#E26CFF" FontSize="12" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                                </Border>
+                                            </HorizontalStackLayout>
+                                            <Label Text="{Binding Overwalming}" FontSize="10" TextColor="#E26CFF" FontFamily="Regular" Padding="5"/>
+                                        </VerticalStackLayout>
+                                    </HorizontalStackLayout>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </FlexLayout>
+                        <Line Grid.Row="2" BackgroundColor="#E26CFF" HeightRequest="1" Margin="50,0,50,0"/>
+                        <Grid Grid.Row="3">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" FontFamily="Medium" Margin="20,0,0,0" TextColor="#E26CFF" Text="Стоимость покупок: "/>
+                            <Label x:Name="TotalPriceLabel" Grid.Row="0" Grid.Column="3" FontFamily="Bold" Margin="0,0,0,0" TextColor="#E26CFF" Text="X Р. "/>
+
+                            <Label Grid.Row="1" Grid.Column="0" FontFamily="Medium" Margin="20,0,0,0" TextColor="#E26CFF" Text="Стоимость покупок с Вашей скидкой: "/>
+                            <Label x:Name="TotalPriceWithDiscountLabel" Grid.Row="1" Grid.Column="3" FontFamily="Black" Margin="0,0,0,0" TextColor="#E26CFF" Text="X Р. "/>
+
+                            <Button Clicked="Button_Clicked" Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="Center" WidthRequest="200" Margin="0,20,0,0" HeightRequest="35" FontSize="12" FontFamily="Black" Text="Оформить заказ" Background="#E26CFF" TextColor="White"/>
+
+                        </Grid>
+
+                    </Grid>
+                </Border>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

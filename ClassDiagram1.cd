@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DreamStuffApp.Model.ClientModel">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAACAAgAAIAEAAQAQAAgAAAAACAEAAACAAAAA=</HashCode>
+      <FileName>Model\ClientModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DreamStuffApp.Model.EventClientListModel">
+    <Position X="11.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAIIAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Model\EventClientListModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DreamStuffApp.Model.EventModel">
+    <Position X="5.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAABAAAAAQAABAAABACAgAAAAAAAAA=</HashCode>
+      <FileName>Model\EventModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DreamStuffApp.Model.LocalStachModel">
+    <Position X="14" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAUAAAAAAAAAAEAAAAAAACA=</HashCode>
+      <FileName>Model\LocalStachModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DreamStuffApp.Model.StachModel">
+    <Position X="9.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAEAAIQAAAAACAEAAAAAAAEABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\StachModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DreamStuffApp.Models.Context">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BgAAAAAAAQAAAAAAACAAAAAAEiAAAAAAAAAEAAAAACA=</HashCode>
+      <FileName>Model\Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DreamStuffApp.Models.GoodsModel">
+    <Position X="6.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAQAAIQAgAAAABAAAAASAAACAQAAAAAAAAAAACAA=</HashCode>
+      <FileName>Model\GoodsModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DreamStuffApp.Models.TypesModel">
+    <Position X="13.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Model\TypesModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

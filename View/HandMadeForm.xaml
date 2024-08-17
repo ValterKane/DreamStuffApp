@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="DreamStuffApp.View.HandMadeForm"
+             Title="HandMadeForm" Background="#E26CFF">
+
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#E26CFF"/>
+    </ContentPage.Behaviors>
+
+    <VerticalStackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Image Source="logo.png" HeightRequest="100"/>
+            <Image Source="name.png" HeightRequest="100" WidthRequest="200"/>
+        </StackLayout>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1200"/>
+            </Grid.RowDefinitions>
+            
+            
+            <Border Grid.Row="0" Margin="0,10,0,0" BackgroundColor="Transparent" Background="Transparent" Stroke="Black" StrokeThickness="0" StrokeShape="RoundRectangle 15, 15,0,0">
+                <Frame Grid.Row="0" CornerRadius="0" x:Name="ContextZone">
+                    <VerticalStackLayout>
+                        <Label Text="Кастомный мерч с Вашим изображением!" TextColor="#E26CFF" FontFamily="Black" HorizontalOptions="CenterAndExpand"/>
+                        <Label Text="Пожалуйста, выберите на чем печатать:" TextColor="#E26CFF" FontFamily="Medium" HorizontalOptions="CenterAndExpand" Padding="5"/>
+                        <HorizontalStackLayout Margin="20,15,0,0">
+                            <Border BackgroundColor="Transparent" Background ="Transparent" Stroke="#E26CFF" StrokeThickness="2" StrokeShape="RoundRectangle 10,10,10,10"
+                                    HeightRequest="150" WidthRequest="150" Margin="0,0,25,0">
+                                <Image x:Name="MerchImage" VerticalOptions="Fill" HorizontalOptions="Fill"/>
+                            </Border>
+
+                            <VerticalStackLayout Margin="0,10,0,0">
+                                <Picker x:Name="MerchPicker" TitleColor="#E26CFF" Title="Вид полиграфии..." TextColor="#E26CFF" VerticalTextAlignment="Center" HorizontalOptions="Center" Margin="0,0,0,0"
+                                    ItemDisplayBinding="{Binding Name}">        
+                                </Picker>
+                            </VerticalStackLayout>
+
+                        </HorizontalStackLayout>
+
+                        <VerticalStackLayout Margin="0,15,0,0">
+                            <Button x:Name="TakeAPhoto" Clicked="TakeAPhoto_Clicked" CornerRadius="5" WidthRequest="150"  HeightRequest="35" HorizontalOptions="CenterAndExpand" BackgroundColor="White" TextColor="#E26CFF"
+                                    Text="Добавить изображение" FontSize="11" BorderColor="#E26CFF" BorderWidth="2" LineBreakMode="WordWrap"/>
+                            <Border Margin="0,5,0,0" HeightRequest="300" Stroke="#E26CFF" StrokeThickness="2" BackgroundColor="Transparent" Background ="Transparent"
+                                    StrokeShape="RoundRectangle 10,10,10,10">
+                                <Image x:Name="SelectedImage"/>
+                            </Border>
+
+                            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,5,0,0">
+                                <Button Clicked="Button_Clicked" CornerRadius="5" WidthRequest="150"  HeightRequest="35" HorizontalOptions="Start" BackgroundColor="#E26CFF" TextColor="White"
+                                    Text="Добавить в корзину" FontSize="11" BorderColor="White" BorderWidth="2" LineBreakMode="WordWrap"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                        
+                    </VerticalStackLayout>
+                </Frame>
+            </Border>
+        </Grid>
+
+    </VerticalStackLayout>
+
+</ContentPage>

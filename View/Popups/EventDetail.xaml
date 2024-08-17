@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+               xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+               xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+               xmlns:e ="clr-namespace:DreamStuffApp.CustomTypes"
+               x:Class="DreamStuffApp.View.Popups.EventDetail" Color="Transparent" VerticalOptions="Center" HorizontalOptions="Center" Size="200">
+    
+    <Border BackgroundColor ="White" Stroke="#E26CFF" StrokeThickness="2" StrokeShape="RoundRectangle 15,15,15,15" WidthRequest="350" HeightRequest="350">
+        <Grid>
+
+            <Grid.Resources>
+                <e:SwitchConverter x:Key="ImageConverter">
+                    <e:SwitchConverterCase When="Участник" Then="iconstar.png"/>
+                    <e:SwitchConverterCase When="Ведущий" Then="iconcrown.png"/>
+                </e:SwitchConverter>
+            </Grid.Resources>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="300"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Row="0" x:Name="EventName" Grid.ColumnSpan="3" TextColor="#E26CFF" FontSize="16" FontFamily="Black" HorizontalOptions="Center"/>
+            <Label Grid.Row="1" x:Name="EventDate" Grid.Column="0"  TextColor="#E26CFF" FontSize="14" FontFamily="Regular" HorizontalOptions="Center"/>
+            <Label Grid.Row="1" x:Name="EventTime" Grid.Column="3"  TextColor="#E26CFF" FontSize="14" FontFamily="Regular" HorizontalOptions="Center"/>
+            <Label Grid.Row="2" Grid.ColumnSpan="3" Text="Участники:" TextColor="#E26CFF" FontSize="14" FontFamily="Regular" HorizontalOptions="Center"/>
+
+            <ScrollView Grid.Row="3" Grid.ColumnSpan="3" Orientation="Vertical">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <VerticalStackLayout x:Name="ClientStatus">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <VerticalStackLayout>
+                                    <Line BackgroundColor="#E26CFF" HeightRequest="1" Grid.ColumnSpan="2" HorizontalOptions="Center" WidthRequest="700"/>
+                                    <HorizontalStackLayout Margin="10,0,0,0">
+                                        <Border BackgroundColor="White" StrokeThickness="0" Grid.Column="0" VerticalOptions="Center">
+                                            <Image Source="{Binding Status, Converter={StaticResource ImageConverter}}" WidthRequest="35" HeightRequest="35"/>
+                                        </Border>
+                                        <HorizontalStackLayout Grid.Column="1" Margin="10,0,0,0" VerticalOptions="Center">
+                                            <Label Text="{Binding Name}" FontSize="12" TextColor="#E26CFF" FontFamily="Medium"/>
+                                            <Label Text="{Binding SecondName}" Margin="5,0,5,0" FontSize="12" TextColor="#E26CFF" FontFamily="Medium"/>
+                                            <Label Text="{Binding LastName}" FontSize="12" TextColor="#E26CFF" FontFamily="Medium"/>
+                                        </HorizontalStackLayout>
+                                    </HorizontalStackLayout>
+                                    
+                                </VerticalStackLayout>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+                    
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </Border>
+
+</toolkit:Popup>

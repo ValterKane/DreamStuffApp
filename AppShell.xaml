@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="DreamStuffApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:DreamStuffApp"
+    xmlns:view="clr-namespace:DreamStuffApp.View"
+    Shell.TabBarBackgroundColor="White"
+    Shell.TabBarUnselectedColor="#f5cdff"
+    Shell.NavBarHasShadow="True"
+    Shell.NavBarIsVisible="False">
+
+
+    <TabBar>
+        <ShellContent Title="Главная" ContentTemplate="{DataTemplate view:MainPage}" Icon="logo.png"/>
+
+        <ShellContent Title="Сделай сам!" ContentTemplate="{DataTemplate view:HandMadeForm}" Icon="edit.png"/>
+
+        <ShellContent Title="Профиль" ContentTemplate="{DataTemplate view:ProfileForm}" Icon="profi.png"/>
+
+        <ShellContent Title="Корзина" ContentTemplate="{DataTemplate view:StashForm}" Icon="stach.png"/>
+
+        <ShellContent Title="О нас" ContentTemplate="{DataTemplate view:AboutAsForm}" Icon="home.png"/>
+    </TabBar>
+
+</Shell>

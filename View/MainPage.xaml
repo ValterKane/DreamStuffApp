@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="DreamStuffApp.View.MainPage" Background="#E26CFF">
+    
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button" x:Key="TypeOfGoodButton">
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="BorderColor" Value="#EC9CFF"/>
+                <Setter Property="BorderWidth" Value="1"/>
+                <Setter Property="FontSize" Value="11"/>
+                <Setter Property="FontFamily" Value="Medium"/>
+                <Setter Property="TextColor" Value="#EC9CFF"/>
+                <Setter Property="WidthRequest" Value="140"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="HeightRequest" Value="25"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="#E26CFF"/>
+    </ContentPage.Behaviors>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="logo.png" HeightRequest="100"/>
+                    <Image Source="name.png" HeightRequest="100" WidthRequest="200"/>
+                </StackLayout>
+
+                <Frame CornerRadius="15" BackgroundColor="#f5cdff"  Margin="0,25,0,0">
+                    <VerticalStackLayout>
+                        <Label Text="Подобрано специально для Вас:" TextColor="White" FontFamily="Black" FontSize="16"/>
+                        <ScrollView Orientation="Horizontal" HeightRequest="200">
+                            <FlexLayout x:Name="PersonalGoods" VerticalOptions="Center" Direction="Row" 
+                                AlignContent="SpaceAround" JustifyContent="SpaceAround" AlignItems="Center">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <ContentView>
+                                            <VerticalStackLayout Margin="10,0,0,0">
+                                                <Border WidthRequest="150" HeightRequest="150" Background="white" Stroke="#E26CFF" StrokeThickness="1" StrokeShape ="RoundRectangle 10,10,10,10" >
+                                                    <Image Source="{Binding ImageURL}"/>
+                                                </Border>
+                                                <HorizontalStackLayout>
+                                                    <VerticalStackLayout>
+                                                        <Label Text="{Binding Name}" FontSize="10" TextColor="White" FontFamily="Regular" Margin="0,5,0,0" LineBreakMode="TailTruncation" WidthRequest="100"/>
+                                                        <HorizontalStackLayout>
+                                                            <Label Text="{Binding Price}" FontSize="14" TextColor="White" FontFamily="Black"/>
+                                                            <Label Text=" Р" FontSize="14" TextColor="White" FontFamily="Black" />
+                                                        </HorizontalStackLayout>
+                                                    </VerticalStackLayout>
+                                                    <Image Source="stach.png" WidthRequest="50" HeightRequest="25">
+                                                        <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter ="{Binding .}"/>
+                                                        </Image.GestureRecognizers>
+                                                    </Image>
+                                                </HorizontalStackLayout>
+                                            </VerticalStackLayout>
+                                        </ContentView>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </FlexLayout>
+                        </ScrollView>
+                        
+                    </VerticalStackLayout>
+                </Frame>
+
+
+                <Frame CornerRadius="15" BackgroundColor="#f5cdff" Margin="0,25,0,0">
+                    <ScrollView Orientation="Horizontal" HeightRequest="150">
+                        <VerticalStackLayout>
+                            <Label Text="События:" TextColor="White" FontFamily="Black" FontSize="16"/>
+                            <FlexLayout x:Name="EventsList" Direction="Row" 
+                                AlignContent="SpaceAround" JustifyContent="SpaceAround" AlignItems="Center">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate>
+                                        <HorizontalStackLayout Margin="0,5,0,0">
+                                            <VerticalStackLayout>
+                                                <Border Background="White" Stroke="#E26CFF" StrokeThickness="1" StrokeShape="RoundRectangle 10,10,10,10" 
+                                                        WidthRequest="100" HeightRequest="100">
+                                                    <Image Source="{Binding ImageURL}" Margin="5,5,5,5">
+                                                        <Image.GestureRecognizers>
+                                                            <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped_3"/>
+                                                        </Image.GestureRecognizers>
+                                                    </Image>
+                                                </Border>
+                                            </VerticalStackLayout>
+                                            <Border BackgroundColor="Transparent" StrokeThickness="0" Margin="5,40,10,0" HeightRequest="100">
+                                                <VerticalStackLayout>
+                                                    <Button Text="{Binding Name}" HeightRequest="35" BackgroundColor="White" TextColor="#E26CFF" FontSize="10">
+                                                        <Button.GestureRecognizers>
+                                                            <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped_2" />
+                                                        </Button.GestureRecognizers>
+                                                    </Button>
+                                                    <Label Text="{Binding Data, StringFormat='{0:d}'}" FontSize="13" FontFamily="Bold" TextColor="White"/>
+                                                    <Label Text="{Binding Data, StringFormat='{0:t}'}" FontSize="13" FontFamily="Bold" TextColor="White"/>
+                                                </VerticalStackLayout>
+                                            </Border>
+                                        </HorizontalStackLayout>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </FlexLayout>
+                        </VerticalStackLayout>
+                    </ScrollView>
+                </Frame>
+
+                <Border Margin="0,30,0,0"
+                        BackgroundColor="White"
+                        Stroke="White"
+                        Background="White"
+                        StrokeShape="RoundRectangle 15,15,0,0"
+                        StrokeThickness="0">
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <IndicatorView Grid.Row="0" x:Name="IndicatorView" Margin="0,20,0,10" HorizontalOptions="Center" IndicatorColor="#f5cdff" SelectedIndicatorColor="#E26CFF"/>
+
+                        <CarouselView Grid.Row="1" x:Name="ButtonNaviZone" IndicatorView="IndicatorView" PeekAreaInsets="120">
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <ContentView>
+                                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                                            <Button Text="{Binding Name}" Style="{DynamicResource TypeOfGoodButton}">
+                                                <Button.GestureRecognizers>
+                                                    <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped_1"/>
+                                                </Button.GestureRecognizers>
+                                            </Button>
+                                        </StackLayout>
+                                    </ContentView>
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                        </CarouselView>
+
+                        <FlexLayout Grid.Row="2" x:Name="GoodsFlexGrid" Margin="0,20,0,0" Direction="Row" Wrap="Wrap" AlignSelf ="Auto" AlignContent="SpaceAround" JustifyContent="SpaceAround" AlignItems="Center" >
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate>
+                                    <VerticalStackLayout WidthRequest="150" HeightRequest="200" Margin="0,0,0,10">
+                                        <Border WidthRequest="150" HeightRequest="150" Background="white" Stroke="#E26CFF" StrokeThickness="1" StrokeShape ="RoundRectangle 10,10,10,10" >
+                                            <Image Source="{Binding ImageURL}"/>
+                                        </Border>
+                                        <HorizontalStackLayout>
+                                            <VerticalStackLayout>
+                                                <Label Text="{Binding Name}" FontSize="10" TextColor="#E26CFF" FontFamily="Regular" Margin="0,5,0,0" LineBreakMode="TailTruncation" WidthRequest="100"/>
+                                                <HorizontalStackLayout>
+                                                    <Label Text="{Binding Price}" FontSize="14" TextColor="#E26CFF" FontFamily="Black"/>
+                                                    <Label Text=" Р" FontSize="14" TextColor="#E26CFF" FontFamily="Black" />
+                                                </HorizontalStackLayout>
+                                            </VerticalStackLayout>
+                                            <Image Source="stach.png" WidthRequest="50" HeightRequest="25">
+                                                <Image.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" CommandParameter ="{Binding .}"/>
+                                                </Image.GestureRecognizers>
+                                            </Image>
+                                        </HorizontalStackLayout>
+                                    </VerticalStackLayout>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </FlexLayout>
+                    </Grid>
+
+                </Border>
+
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
